@@ -30,7 +30,7 @@ final class Assembly {
         view.presenter = presenter
         return view
     }
-    
+
     private func searchViewController() -> UIViewController {
         let view = SearchViewController()
         let presenter = SearchPresenter(view: view, model: model)

@@ -9,25 +9,41 @@
 /* Begin PBXBuildFile section */
 		B5E2788628B3B0D1002A6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E2788528B3B0D1002A6981 /* AppDelegate.swift */; };
 		B5E2788828B3B0D1002A6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E2788728B3B0D1002A6981 /* SceneDelegate.swift */; };
-		B5E2788A28B3B0D1002A6981 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E2788928B3B0D1002A6981 /* ViewController.swift */; };
+		B5E2788A28B3B0D1002A6981 /* CryptosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E2788928B3B0D1002A6981 /* CryptosViewController.swift */; };
 		B5E2788F28B3B0D3002A6981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5E2788E28B3B0D3002A6981 /* Assets.xcassets */; };
 		B5E2789228B3B0D3002A6981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5E2789028B3B0D3002A6981 /* LaunchScreen.storyboard */; };
 		B5E2789B28B3B17C002A6981 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5E2789928B3B17C002A6981 /* Montserrat-Bold.ttf */; };
 		B5E2789C28B3B17C002A6981 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5E2789A28B3B17C002A6981 /* Montserrat-SemiBold.ttf */; };
 		B5E2789F28B3B1CF002A6981 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E2789E28B3B1CF002A6981 /* Assembly.swift */; };
+		B5E278A128B3B271002A6981 /* CryptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278A028B3B271002A6981 /* CryptoTableViewCell.swift */; };
+		B5E278A328B3B2A8002A6981 /* CryptosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278A228B3B2A8002A6981 /* CryptosPresenter.swift */; };
+		B5E278A528B3B2C7002A6981 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278A428B3B2C7002A6981 /* NetworkService.swift */; };
+		B5E278A728B3B311002A6981 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278A628B3B311002A6981 /* Model.swift */; };
+		B5E278A928B3B34E002A6981 /* UIImgeViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278A828B3B34E002A6981 /* UIImgeViewExtension.swift */; };
+		B5E278AB28B3B373002A6981 /* ModelCryptos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AA28B3B373002A6981 /* ModelCryptos.swift */; };
+		B5E278AD28B3B39B002A6981 /* ModelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AC28B3B39B002A6981 /* ModelViewCell.swift */; };
+		B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B5E2788228B3B0D1002A6981 /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5E2788528B3B0D1002A6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5E2788728B3B0D1002A6981 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5E2788928B3B0D1002A6981 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5E2788928B3B0D1002A6981 /* CryptosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptosViewController.swift; sourceTree = "<group>"; };
 		B5E2788E28B3B0D3002A6981 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5E2789128B3B0D3002A6981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5E2789328B3B0D3002A6981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5E2789928B3B17C002A6981 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		B5E2789A28B3B17C002A6981 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		B5E2789E28B3B1CF002A6981 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		B5E278A028B3B271002A6981 /* CryptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewCell.swift; sourceTree = "<group>"; };
+		B5E278A228B3B2A8002A6981 /* CryptosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptosPresenter.swift; sourceTree = "<group>"; };
+		B5E278A428B3B2C7002A6981 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B5E278A628B3B311002A6981 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B5E278A828B3B34E002A6981 /* UIImgeViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImgeViewExtension.swift; sourceTree = "<group>"; };
+		B5E278AA28B3B373002A6981 /* ModelCryptos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCryptos.swift; sourceTree = "<group>"; };
+		B5E278AC28B3B39B002A6981 /* ModelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewCell.swift; sourceTree = "<group>"; };
+		B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +80,15 @@
 				B5E2788528B3B0D1002A6981 /* AppDelegate.swift */,
 				B5E2788728B3B0D1002A6981 /* SceneDelegate.swift */,
 				B5E2789E28B3B1CF002A6981 /* Assembly.swift */,
-				B5E2788928B3B0D1002A6981 /* ViewController.swift */,
+				B5E278A028B3B271002A6981 /* CryptoTableViewCell.swift */,
+				B5E2788928B3B0D1002A6981 /* CryptosViewController.swift */,
+				B5E278A228B3B2A8002A6981 /* CryptosPresenter.swift */,
+				B5E278A428B3B2C7002A6981 /* NetworkService.swift */,
+				B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */,
+				B5E278A628B3B311002A6981 /* Model.swift */,
+				B5E278AA28B3B373002A6981 /* ModelCryptos.swift */,
+				B5E278AC28B3B39B002A6981 /* ModelViewCell.swift */,
+				B5E278A828B3B34E002A6981 /* UIImgeViewExtension.swift */,
 				B5E2788E28B3B0D3002A6981 /* Assets.xcassets */,
 				B5E2789028B3B0D3002A6981 /* LaunchScreen.storyboard */,
 				B5E2789328B3B0D3002A6981 /* Info.plist */,
@@ -153,10 +177,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5E2788A28B3B0D1002A6981 /* ViewController.swift in Sources */,
+				B5E278A928B3B34E002A6981 /* UIImgeViewExtension.swift in Sources */,
+				B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */,
+				B5E2788A28B3B0D1002A6981 /* CryptosViewController.swift in Sources */,
+				B5E278A328B3B2A8002A6981 /* CryptosPresenter.swift in Sources */,
 				B5E2789F28B3B1CF002A6981 /* Assembly.swift in Sources */,
 				B5E2788628B3B0D1002A6981 /* AppDelegate.swift in Sources */,
+				B5E278A128B3B271002A6981 /* CryptoTableViewCell.swift in Sources */,
 				B5E2788828B3B0D1002A6981 /* SceneDelegate.swift in Sources */,
+				B5E278A528B3B2C7002A6981 /* NetworkService.swift in Sources */,
+				B5E278AB28B3B373002A6981 /* ModelCryptos.swift in Sources */,
+				B5E278A728B3B311002A6981 /* Model.swift in Sources */,
+				B5E278AD28B3B39B002A6981 /* ModelViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
