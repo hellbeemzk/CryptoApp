@@ -8,7 +8,7 @@ App for search and tracking Cryptocurrencies in real time
 * Data Storage Method (added crypto to Favorites) : **UserDefaults**
 
 ## Screenshots
-<img src="https://github.com/hellbeemzk/CryptoApp/tree/master/CryptoApp/Screenshots/FirstScreen.png" alt="[FirstScreenshotiOS]" align="center" width="270"/> <img src="https://github.com/hellbeemzk/CryptoApp/tree/master/CryptoApp/Screenshots/FavoriteScreen.png" alt="[FavoriteScreenshotiOS]" align="center" width="270"/> <img src="https://github.com/hellbeemzk/CryptoApp/tree/master/CryptoApp/Screenshots/SearchScreen.png" alt="[FavoriteScreenshotiOS]" align="center" width="270"/>
+<img src="https://github.com/hellbeemzk/CryptoApp/tree/master/CryptoApp/Screenshots/FirstScreen.png" alt="[FirstScreenshotiOS]" align="center" width="260"/> <img src="https://github.com/hellbeemzk/CryptoApp/blob/master/CryptoApp/Screenshots/FavoriteScreen.png" alt="[FavoriteScreenshotiOS]" align="center" width="260"/> <img src="https://github.com/hellbeemzk/CryptoApp/tree/master/CryptoApp/Screenshots/SearchScreen.png" alt="[FavoriteScreenshotiOS]" align="center" width="260"/>
 
 
 
