@@ -8,16 +8,18 @@
 import UIKit
 
 protocol MainViewPresenterProtocol: AnyObject {
-    init (view: ViewProtocol, networkService: NetworkServiceProtocol, model: ModelCryptosProtocol)
+    init (view: AllCryptosViewProtocol, networkService: NetworkServiceProtocol, model: ModelCryptosProtocol)
 }
 
 final class CryptosPresenter: MainViewPresenterProtocol {
     
+    // MARK: - Properties
     private let model: ModelCryptosProtocol
-    private weak var view: ViewProtocol?
+    private weak var view: AllCryptosViewProtocol?
     private let networkService: NetworkServiceProtocol
     
-    init(view: ViewProtocol, networkService: NetworkServiceProtocol, model: ModelCryptosProtocol) {
+    // MARK: - Initialization
+    init(view: AllCryptosViewProtocol, networkService: NetworkServiceProtocol, model: ModelCryptosProtocol) {
         self.view = view
         self.networkService = networkService
         self.model = model
@@ -37,6 +39,7 @@ final class CryptosPresenter: MainViewPresenterProtocol {
         return formatter
     }()
     
+    // MARK: - Methods
     private func setHandlers() {
         self.view?.getNumberOfRowsHandler = { [weak self] in
             return self?.getNumberOfCryptos() ?? 0
@@ -70,7 +73,6 @@ final class CryptosPresenter: MainViewPresenterProtocol {
         self.networkService.getAllCryptoData{ [weak self] result in
             switch result {
             case .success(let models):
-                print(models)
                 models.forEach { model in
                     let price = model.price_usd ?? 0
                     let formatter = self?.numberFormatter
@@ -78,9 +80,9 @@ final class CryptosPresenter: MainViewPresenterProtocol {
                     let iconUrl = URL(string: self?.model.getIcons().filter { icon in
                         icon.asset_id == model.asset_id }.first?.url ?? "" )
                     let crypto = ViewModelCellCrypto(name: model.name ?? "",
-                                                              symbol: model.asset_id,
-                                                              price: priceString ?? "",
-                                                              iconUrl: iconUrl)
+                                                     symbol: model.asset_id,
+                                                     price: priceString ?? "",
+                                                     iconUrl: iconUrl)
                     self?.model.addCrypto(crypto: crypto)
                 }
                 DispatchQueue.main.async {

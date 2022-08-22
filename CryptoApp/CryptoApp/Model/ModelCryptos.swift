@@ -16,10 +16,12 @@ protocol ModelCryptosProtocol {
 
 final class ModelCryptos: ModelCryptosProtocol {
     
+    //MARK: - Properties
     private var viewModelsCrypto = [ViewModelCellCrypto]()
     
     private var icons = [Icon]()
     
+    //MARK: - Methods
     func addCrypto(crypto: ViewModelCellCrypto) {
         self.viewModelsCrypto.append(crypto)
     }

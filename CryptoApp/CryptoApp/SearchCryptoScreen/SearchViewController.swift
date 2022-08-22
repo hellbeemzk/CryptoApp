@@ -12,8 +12,8 @@ protocol SearchViewProtocol: AnyObject {
     var getFilteredCryptos: (() -> [ViewModelCellCrypto])? { get set }
 }
 
-final class SearchViewController: UIViewController, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, AddToFavoriteDelegate, SearchViewProtocol { // UISearchBarDelegate
-        
+final class SearchViewController: UIViewController, SearchViewProtocol { 
+    
     //MARK: - Properties
     var presenter: SearchPresenterProtocol!
     
@@ -27,7 +27,7 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
     }()
     
     private lazy var searchController: UISearchController = {
-         let searchController = UISearchController()
+        let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.loadViewIfNeeded()
         searchController.searchBar.tintColor = .black
@@ -39,8 +39,8 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
         definesPresentationContext = true
         return searchController
     }()
-
-    //MARK: - View Lifecycle
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpSubViews()
@@ -52,6 +52,7 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
         self.tableView.reloadData()
     }
     
+    // MARK: - Methods
     private func setUpSubViews() {
         self.view.backgroundColor = .white
         self.view.addSubview(self.tableView)
@@ -59,35 +60,40 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
     }
     
     private func setupNavigationController() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes =
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes =
         [NSAttributedString.Key.font: UIFont(name: "Montserrat-Bold", size: 30)!]
-        navigationController?.navigationBar.topItem?.title = "Search Crypto"
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
-        
-    func addToFavorite() {
-        tableView.reloadData()
+        self.navigationController?.navigationBar.topItem?.title = "Search Crypto"
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
+    // MARK: - ComplitionHandlers
     var searchHandler: ((String) -> Void)?
-    var getFilteredCryptos: (() -> [ViewModelCellCrypto])?// в протоккол
-    
-    //MARK: - Search methods
-    
+    var getFilteredCryptos: (() -> [ViewModelCellCrypto])?
+}
+
+// MARK: - AddToFavoriteDelegate
+extension SearchViewController: AddToFavoriteDelegate {
+    func addToFavorite() {
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - Search methods
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!.replacingOccurrences(of: " ", with: "")
         self.searchHandler?(searchText)
-        print("SEARCH \(searchText)")
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
-        
-    
-    //MARK: - TableView Methods
+}
+
+// MARK: - TableView Methods
+extension SearchViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive {
-            return getFilteredCryptos?().count ?? 0
+        if self.searchController.isActive {
+            return self.getFilteredCryptos?().count ?? 0
         }
         return 0
     }
@@ -100,7 +106,7 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
         } else {
             cell.cellView.backgroundColor = .white
         }
-        if searchController.isActive {
+        if self.searchController.isActive {
             if let cryptos = getFilteredCryptos?() {
                 cell.configure(with: cryptos[indexPath.row])
             }
@@ -108,5 +114,4 @@ final class SearchViewController: UIViewController, UITableViewDataSource, UISea
         cell.delegate = self
         return cell
     }
-    
 }

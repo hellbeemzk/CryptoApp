@@ -12,13 +12,16 @@ protocol FavoriteViewProtocol: AnyObject {
     var getFavoriteCryptoHandler: (() -> [ViewModelCellCrypto])? { get set }
 }
 
-protocol AddToFavoriteDelegate: AnyObject { // rename protocol?
+protocol AddToFavoriteDelegate: AnyObject {
     func addToFavorite()
 }
 
-final class FavoriteCryptosViewController: UIViewController, UITableViewDataSource, AddToFavoriteDelegate, FavoriteViewProtocol {
+final class FavoriteCryptosViewController: UIViewController, FavoriteViewProtocol {
     
-    private lazy var tableView: UITableView = { // mb weak ?
+    // MARK: - Properties
+    var presenter: FavoritePresenterProtocol!
+    
+    private lazy var tableView: UITableView = { //
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(CryptoTableViewCell.self, forCellReuseIdentifier: CryptoTableViewCell.identifier)
         tableView.separatorStyle = .none
@@ -26,33 +29,12 @@ final class FavoriteCryptosViewController: UIViewController, UITableViewDataSour
         tableView.dataSource = self
         return tableView
     }()
-    
-    var presenter: FavoritePresenterProtocol!
-    
-    var getNumberOfRowsFavotireCryptosHandler: (() -> Int)?
-    var getFavoriteCryptoHandler: (() -> [ViewModelCellCrypto])?
 
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpSubViews()
         self.setupNavigationController()
-    }
-    
-    private func setUpSubViews() {
-        self.view.backgroundColor = .white
-        view.addSubview(self.tableView)
-        self.tableView.frame = self.view.bounds
-    }
-    
-    private func setupNavigationController() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes =
-        [NSAttributedString.Key.font: UIFont(name: "Montserrat-Bold", size: 30)!]
-        navigationController?.navigationBar.topItem?.title = "Favorite Crypto"
-    }
-    
-    func addToFavorite() {
-        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +42,34 @@ final class FavoriteCryptosViewController: UIViewController, UITableViewDataSour
         self.tableView.reloadData()
     }
     
+    // MARK: - ComplitionHandlers
+    var getNumberOfRowsFavotireCryptosHandler: (() -> Int)?
+    var getFavoriteCryptoHandler: (() -> [ViewModelCellCrypto])?
+    
+    // MARK: - Methods
+    private func setUpSubViews() {
+        self.view.backgroundColor = .white
+        self.view.addSubview(self.tableView)
+        self.tableView.frame = self.view.bounds
+    }
+    
+    private func setupNavigationController() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes =
+        [NSAttributedString.Key.font: UIFont(name: "Montserrat-Bold", size: 30)!]
+        self.navigationController?.navigationBar.topItem?.title = "Favorite Crypto"
+    }
+}
+
+    // MARK: - AddToFavoriteDelegate
+extension FavoriteCryptosViewController: AddToFavoriteDelegate {
+    func addToFavorite() {
+        self.tableView.reloadData()
+    }
+}
+
+    // MARK: - TableView Methods
+extension FavoriteCryptosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getNumberOfRowsFavotireCryptosHandler?() ?? 0
     }

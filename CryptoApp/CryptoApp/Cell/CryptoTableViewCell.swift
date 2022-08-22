@@ -9,7 +9,7 @@ import UIKit
 
 final class CryptoTableViewCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     static let identifier = "CryptoTableViewCell"
     
     weak var delegate: AddToFavoriteDelegate?
@@ -58,6 +58,7 @@ final class CryptoTableViewCell: UITableViewCell {
         return button
     }()
     
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setUpViews()
@@ -68,6 +69,7 @@ final class CryptoTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func setUpViews() {
         contentView.addSubview(self.cellView)
         let cellSubViews = [nameLabel, symbolLabel, priceLabel, starButton, iconImageView]
@@ -92,7 +94,7 @@ final class CryptoTableViewCell: UITableViewCell {
         self.delegate?.addToFavorite()
     }
     
-    //MARK: - Layout rules
+    // MARK: - Layout rules
     private func setupLayoutCellView() {
         NSLayoutConstraint.activate([
             self.cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 15),
@@ -140,7 +142,7 @@ final class CryptoTableViewCell: UITableViewCell {
     }
     
     
-    //    MARK: - PrepareForReuse
+    // MARK: - PrepareForReuse
     override func prepareForReuse() {
         super.prepareForReuse()
         self.iconImageView.image = nil
@@ -150,7 +152,7 @@ final class CryptoTableViewCell: UITableViewCell {
         self.addToFavoriteAction = nil
     }
     
-    //MARK: - Configure Method for cell
+    // MARK: - Configure Method for cell
     
     func configure (with viewModel: ViewModelCellCryptoProtocol) {
         self.nameLabel.text = viewModel.name

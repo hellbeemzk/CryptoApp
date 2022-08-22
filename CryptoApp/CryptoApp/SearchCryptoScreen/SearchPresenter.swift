@@ -13,17 +13,19 @@ protocol SearchPresenterProtocol: AnyObject {
 
 final class SearchPresenter : SearchPresenterProtocol {
     
+    //MARK: - Properties
     private weak var view: SearchViewProtocol?
     private let model: ModelCryptosProtocol
+    private var searchText: String = ""
     
+    //MARK: - Initialization
     init(view: SearchViewProtocol, model: ModelCryptosProtocol) {
         self.view = view
         self.model = model
         self.setHandlers()
     }
     
-    private var searchText: String = ""
-    
+    //MARK: - Methods
     private func setHandlers() {
         self.view?.getFilteredCryptos  = { [weak self] in
             self?.getFilteredCryptos() ?? []

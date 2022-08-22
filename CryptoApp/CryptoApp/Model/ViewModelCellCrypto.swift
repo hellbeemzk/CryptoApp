@@ -1,5 +1,5 @@
 //
-//  ModelViewCell.swift
+//  ViewModelCellCrypto.swift
 //  CryptoApp
 //
 //  Created by Konstantin on 22.08.2022.
@@ -8,16 +8,18 @@
 import Foundation
 
 protocol ViewModelCellCryptoProtocol {
-    var name: String { get set }
-    var symbol: String { get set }
-    var price: String { get set }
-    var iconUrl: URL? { get set }
-    var iconData: Data? { get set }
-    var isFavorite: Bool { get set }
+    var name: String     { get }
+    var symbol: String   { get }
+    var price: String    { get }
+    var iconUrl: URL?    { get }
+    var iconData: Data?  { get }
+    var isFavorite: Bool { get }
     func setFavorite()
 }
 
-class ViewModelCellCrypto: ViewModelCellCryptoProtocol { // protocol
+class ViewModelCellCrypto: ViewModelCellCryptoProtocol { 
+    
+    // MARK: - Properties
     var name: String
     var symbol: String
     var price: String
@@ -27,6 +29,7 @@ class ViewModelCellCrypto: ViewModelCellCryptoProtocol { // protocol
     
     private var favoriteService: FavoriteServiceProtocol
     
+    // MARK: - Initialization
     init(name: String, symbol: String, price: String, iconUrl: URL?){
         self.name = name
         self.symbol = symbol
@@ -36,14 +39,15 @@ class ViewModelCellCrypto: ViewModelCellCryptoProtocol { // protocol
         self.isFavorite = favoriteService.isFavorite(for: name)
     }
     
+    // MARK: - Method
     func setFavorite() {
-        isFavorite.toggle()
-        print("\(self.name) + \(self.isFavorite)")
+        self.isFavorite.toggle()
         
-        if isFavorite {
+        if self.isFavorite {
             self.favoriteService.saveFavoriteCryptos(name: self.name)
         } else {
             self.favoriteService.removeFavoriteCrypto(name: self.name)
             }
         }
+    
     }

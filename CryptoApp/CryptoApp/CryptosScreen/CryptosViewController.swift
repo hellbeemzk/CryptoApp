@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ViewProtocol: AnyObject {
+protocol AllCryptosViewProtocol: AnyObject {
     func succes()
     func failure(error: Error)
     var getNumberOfRowsHandler: (() -> Int)? { get set }
@@ -15,10 +15,10 @@ protocol ViewProtocol: AnyObject {
     func stopIndicator()
 }
 
-final class CryptosViewController: UIViewController, UITableViewDataSource {
+final class CryptosViewController: UIViewController {
             
-    //MARK: - Properties
-    private lazy var tableView: UITableView = { // mb weak ?
+    // MARK: - Properties
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(CryptoTableViewCell.self, forCellReuseIdentifier: CryptoTableViewCell.identifier)
         tableView.separatorStyle = .none
@@ -39,7 +39,7 @@ final class CryptosViewController: UIViewController, UITableViewDataSource {
     
     var presenter: MainViewPresenterProtocol!
     
-    //MARK: - View Lifecycle
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationController()
@@ -51,10 +51,11 @@ final class CryptosViewController: UIViewController, UITableViewDataSource {
         self.tableView.reloadData()
     }
     
+    // MARK: - Methods
     private func setupNavigationController() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.topItem?.title = "Cryptocurrencies"
-        navigationController?.navigationBar.titleTextAttributes =
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.topItem?.title = "Cryptocurrencies"
+        self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.font: UIFont(name: "Montserrat-Bold", size: 25)!]
         
     }
@@ -84,18 +85,20 @@ final class CryptosViewController: UIViewController, UITableViewDataSource {
         self.activityIndicator.stopAnimating()
     }
     
-    //MARK: - Search methods
+    // MARK: - ComplitionHandlers
     var getNumberOfRowsHandler: (() -> Int)?
     var getContentForCellHandler: (() -> [ViewModelCellCryptoProtocol])?
-
+}
     
-    //MARK: - TableView Methods
+    // MARK: - TableView Methods
+extension CryptosViewController : UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getNumberOfRowsHandler?() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoTableViewCell.identifier, for: indexPath) as? CryptoTableViewCell else { fatalError() } // попробовать переиспользовать
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoTableViewCell.identifier, for: indexPath) as? CryptoTableViewCell else { fatalError() } 
         cell.selectionStyle = .none
         if indexPath.row.isMultiple(of: 2) {
             cell.cellView.backgroundColor = UIColor(red: 240/255, green: 244/255, blue: 247/255, alpha: 1)
@@ -110,12 +113,12 @@ final class CryptosViewController: UIViewController, UITableViewDataSource {
     }
     
 }
-
-extension CryptosViewController: ViewProtocol {
+// MARK: - AllCryptosViewProtocol
+extension CryptosViewController: AllCryptosViewProtocol {
     func succes() {
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
-
+    
     func failure(error: Error) {
         let alert = UIAlertController(title: "Network Error",
                                       message: "Not received data from the server",
@@ -124,6 +127,5 @@ extension CryptosViewController: ViewProtocol {
         self.present(alert, animated: true, completion: nil)
         print(error.localizedDescription)
     }
-    
 }
 

@@ -12,25 +12,27 @@ final class Assembly {
     private init() {}
     
     static let shared: Assembly = .init()
-    
-    var model: ModelCryptosProtocol = ModelCryptos()
+
+    // MARK: - Properties
+    private var model: ModelCryptosProtocol = ModelCryptos()
     var favoriteService : FavoriteServiceProtocol = FavoriteService()
     
+    // MARK: - Methods
     private func createMainModule() -> UIViewController {
         let view = CryptosViewController()
         let networkService = NetworkService()
-        let presenter = CryptosPresenter(view: view, networkService: networkService, model: model )
+        let presenter = CryptosPresenter(view: view, networkService: networkService, model: model)
         view.presenter = presenter
         return view
     }
     
     private func favoriteViewController() -> UIViewController {
         let view = FavoriteCryptosViewController()
-        let presenter = FavoriteCryptosPresenter(view: view, model: model )
+        let presenter = FavoriteCryptosPresenter(view: view, model: model)
         view.presenter = presenter
         return view
     }
-
+    
     private func searchViewController() -> UIViewController {
         let view = SearchViewController()
         let presenter = SearchPresenter(view: view, model: model)
@@ -38,7 +40,7 @@ final class Assembly {
         return view
     }
     
-    func tabBarController() -> UIViewController { // может быть вынести в отдельную сущность
+    func tabBarController() -> UIViewController {
         let tabBar = UITabBarController()
         
         let allCryptosVC = createMainModule()

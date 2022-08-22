@@ -12,16 +12,19 @@ protocol FavoritePresenterProtocol: AnyObject {
 }
 
 final class FavoriteCryptosPresenter : FavoritePresenterProtocol {
-
+    
+    // MARK: - Properties
     private weak var view: FavoriteViewProtocol?
     private let model: ModelCryptosProtocol // protocol
     
+    // MARK: - Initialize
     init(view: FavoriteViewProtocol, model: ModelCryptosProtocol) {
         self.view = view
         self.model = model
         self.setHandlers()
     }
     
+    // MARK: - Methods
     private func setHandlers() {
         self.view?.getNumberOfRowsFavotireCryptosHandler = { [weak self] in
             self?.getNumberOfFavoriteCryptos() ?? 0
