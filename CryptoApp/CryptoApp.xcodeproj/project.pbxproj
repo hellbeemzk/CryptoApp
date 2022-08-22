@@ -23,6 +23,8 @@
 		B5E278AB28B3B373002A6981 /* ModelCryptos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AA28B3B373002A6981 /* ModelCryptos.swift */; };
 		B5E278AD28B3B39B002A6981 /* ModelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AC28B3B39B002A6981 /* ModelViewCell.swift */; };
 		B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */; };
+		B5E278B128B3B497002A6981 /* FavoriteCryptosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */; };
+		B5E278B328B3B4B5002A6981 /* FavoriteCryptosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		B5E278AA28B3B373002A6981 /* ModelCryptos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCryptos.swift; sourceTree = "<group>"; };
 		B5E278AC28B3B39B002A6981 /* ModelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewCell.swift; sourceTree = "<group>"; };
 		B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCryptosViewController.swift; sourceTree = "<group>"; };
+		B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCryptosPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		B5E2787928B3B0D1002A6981 = {
 			isa = PBXGroup;
 			children = (
+				B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */,
 				B5E2788428B3B0D1002A6981 /* CryptoApp */,
 				B5E2789D28B3B184002A6981 /* Fonts */,
 				B5E2788328B3B0D1002A6981 /* Products */,
@@ -83,6 +88,7 @@
 				B5E278A028B3B271002A6981 /* CryptoTableViewCell.swift */,
 				B5E2788928B3B0D1002A6981 /* CryptosViewController.swift */,
 				B5E278A228B3B2A8002A6981 /* CryptosPresenter.swift */,
+				B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */,
 				B5E278A428B3B2C7002A6981 /* NetworkService.swift */,
 				B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */,
 				B5E278A628B3B311002A6981 /* Model.swift */,
@@ -180,6 +186,7 @@
 				B5E278A928B3B34E002A6981 /* UIImgeViewExtension.swift in Sources */,
 				B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */,
 				B5E2788A28B3B0D1002A6981 /* CryptosViewController.swift in Sources */,
+				B5E278B328B3B4B5002A6981 /* FavoriteCryptosPresenter.swift in Sources */,
 				B5E278A328B3B2A8002A6981 /* CryptosPresenter.swift in Sources */,
 				B5E2789F28B3B1CF002A6981 /* Assembly.swift in Sources */,
 				B5E2788628B3B0D1002A6981 /* AppDelegate.swift in Sources */,
@@ -187,6 +194,7 @@
 				B5E2788828B3B0D1002A6981 /* SceneDelegate.swift in Sources */,
 				B5E278A528B3B2C7002A6981 /* NetworkService.swift in Sources */,
 				B5E278AB28B3B373002A6981 /* ModelCryptos.swift in Sources */,
+				B5E278B128B3B497002A6981 /* FavoriteCryptosViewController.swift in Sources */,
 				B5E278A728B3B311002A6981 /* Model.swift in Sources */,
 				B5E278AD28B3B39B002A6981 /* ModelViewCell.swift in Sources */,
 			);
