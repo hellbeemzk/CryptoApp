@@ -25,6 +25,8 @@
 		B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */; };
 		B5E278B128B3B497002A6981 /* FavoriteCryptosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */; };
 		B5E278B328B3B4B5002A6981 /* FavoriteCryptosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */; };
+		B5E278B528B3B4F6002A6981 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B428B3B4F6002A6981 /* SearchViewController.swift */; };
+		B5E278B728B3B513002A6981 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E278B628B3B513002A6981 /* SearchPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCryptosViewController.swift; sourceTree = "<group>"; };
 		B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCryptosPresenter.swift; sourceTree = "<group>"; };
+		B5E278B428B3B4F6002A6981 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B5E278B628B3B513002A6981 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,6 @@
 		B5E2787928B3B0D1002A6981 = {
 			isa = PBXGroup;
 			children = (
-				B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */,
 				B5E2788428B3B0D1002A6981 /* CryptoApp */,
 				B5E2789D28B3B184002A6981 /* Fonts */,
 				B5E2788328B3B0D1002A6981 /* Products */,
@@ -89,6 +92,9 @@
 				B5E2788928B3B0D1002A6981 /* CryptosViewController.swift */,
 				B5E278A228B3B2A8002A6981 /* CryptosPresenter.swift */,
 				B5E278B028B3B497002A6981 /* FavoriteCryptosViewController.swift */,
+				B5E278B228B3B4B5002A6981 /* FavoriteCryptosPresenter.swift */,
+				B5E278B428B3B4F6002A6981 /* SearchViewController.swift */,
+				B5E278B628B3B513002A6981 /* SearchPresenter.swift */,
 				B5E278A428B3B2C7002A6981 /* NetworkService.swift */,
 				B5E278AE28B3B3D1002A6981 /* FavoriteService.swift */,
 				B5E278A628B3B311002A6981 /* Model.swift */,
@@ -183,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5E278B528B3B4F6002A6981 /* SearchViewController.swift in Sources */,
 				B5E278A928B3B34E002A6981 /* UIImgeViewExtension.swift in Sources */,
 				B5E278AF28B3B3D1002A6981 /* FavoriteService.swift in Sources */,
 				B5E2788A28B3B0D1002A6981 /* CryptosViewController.swift in Sources */,
@@ -196,6 +203,7 @@
 				B5E278AB28B3B373002A6981 /* ModelCryptos.swift in Sources */,
 				B5E278B128B3B497002A6981 /* FavoriteCryptosViewController.swift in Sources */,
 				B5E278A728B3B311002A6981 /* Model.swift in Sources */,
+				B5E278B728B3B513002A6981 /* SearchPresenter.swift in Sources */,
 				B5E278AD28B3B39B002A6981 /* ModelViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
