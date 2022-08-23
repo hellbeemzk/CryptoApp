@@ -4,6 +4,8 @@ App for search and tracking Cryptocurrencies in real time
 ## About project
 
 * Design pattern is **MVP** with **Assembly** for building module
+* Full programmatically UI (no storyboard)
+* Fetching currencies data from backend API
 * Application implements addition to Favorites and Searching among all currencies
 * Data Storage Method (added crypto to Favorites) : **UserDefaults**
 
