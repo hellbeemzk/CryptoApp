@@ -11,8 +11,7 @@ protocol ViewModelCellCryptoProtocol {
     var name: String     { get }
     var symbol: String   { get }
     var price: String    { get }
-    var iconUrl: URL?    { get }
-    var iconData: Data?  { get }
+    var iconUrl: String? { get }
     var isFavorite: Bool { get }
     func setFavorite()
 }
@@ -23,14 +22,13 @@ class ViewModelCellCrypto: ViewModelCellCryptoProtocol {
     var name: String
     var symbol: String
     var price: String
-    var iconUrl: URL?
-    var iconData: Data?
+    var iconUrl: String?
     var isFavorite: Bool
     
     private var favoriteService: FavoriteServiceProtocol
     
     // MARK: - Initialization
-    init(name: String, symbol: String, price: String, iconUrl: URL?){
+    init(name: String, symbol: String, price: String, iconUrl: String?) {
         self.name = name
         self.symbol = symbol
         self.price = price

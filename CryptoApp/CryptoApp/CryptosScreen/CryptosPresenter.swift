@@ -28,7 +28,7 @@ final class CryptosPresenter: MainViewPresenterProtocol {
         self.getAllCryptos()
     }
     
-     private lazy var numberFormatter: NumberFormatter = {
+    private lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "en_US")
         formatter.allowsFloats = true
@@ -77,8 +77,8 @@ final class CryptosPresenter: MainViewPresenterProtocol {
                     let price = model.price_usd ?? 0
                     let formatter = self?.numberFormatter
                     let priceString = formatter?.string(from: NSNumber(value: price))
-                    let iconUrl = URL(string: self?.model.getIcons().filter { icon in
-                        icon.asset_id == model.asset_id }.first?.url ?? "" )
+                    let iconUrl = self?.model.getIcons().filter { icon in
+                        icon.asset_id == model.asset_id }.first?.url
                     let crypto = ViewModelCellCrypto(name: model.name ?? "",
                                                      symbol: model.asset_id,
                                                      price: priceString ?? "",

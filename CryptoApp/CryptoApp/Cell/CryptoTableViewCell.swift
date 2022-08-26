@@ -162,12 +162,9 @@ final class CryptoTableViewCell: UITableViewCell {
         self.addToFavoriteAction = {
             viewModel.setFavorite()
         }
-        if let data = viewModel.iconData {
-            self.iconImageView.image = UIImage(data: data)
-        }
-        else if let url = viewModel.iconUrl {
+        if let url = viewModel.iconUrl {
             DispatchQueue.main.async {
-                self.iconImageView.load(url: url)
+                self.iconImageView.loadImageUsingCache(urlString: url)
             }
         }
     }
